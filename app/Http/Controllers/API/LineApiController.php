@@ -24,16 +24,17 @@ class LineApiController extends Controller
 
         switch($event["type"]){
             case "message" :
-                // $this->messageHandler($event);
+                if($event["message"]["type"] == "image"){
+                    $this->image_convert($event);
+                }else{
+                    // $this->messageHandler($event);
+                }
                 break;
             case "postback" :
                 // $this->postbackHandler($event);
                 break;
             case "join" :
                 // $this->save_group_line($event);
-                break;
-            case "image" :
-                $this->image_convert($event);
                 break;
             // case "follow" :
             //     $this->user_follow_line($event);
