@@ -12,6 +12,8 @@ class LineApiController extends Controller
     {
         return "OK";
         //SAVE LOG
+        //SAVE LOG
+
         // $requestData = $request->all();
         // $data = [
         //     "title" => "Line",
