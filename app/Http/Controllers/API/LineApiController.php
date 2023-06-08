@@ -56,7 +56,7 @@ class LineApiController extends Controller
         //LOAD REMOTE IMAGE AND SAVE TO LOCAL
         $binary_data  = $this->getImageFromLine($event["message"]["id"]);
         $filename = $this->random_string(20).".png";
-        $new_path = storage_path('app/public/uploads/ocr/'.$filename);
+        $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
 
         Image::make($binary_data)->save($new_path);
 
