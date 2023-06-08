@@ -10,14 +10,14 @@ class LineApiController extends Controller
 {
     public function store(Request $request)
     {
+        return "OK";
         //SAVE LOG
-        $requestData = $request->all();
-        $data = [
-            "title" => "Line",
-            "content" => json_encode($requestData, JSON_UNESCAPED_UNICODE),
-        ];
-        MyLog::create($data);
-// fdfdf
+        // $requestData = $request->all();
+        // $data = [
+        //     "title" => "Line",
+        //     "content" => json_encode($requestData, JSON_UNESCAPED_UNICODE),
+        // ];
+        // MyLog::create($data);
 
         //GET ONLY FIRST EVENT
         // $event = $requestData["events"][0];
