@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +20,9 @@ Route::get('/', function () {
 });
 
 Route::resource('mylog', 'MylogController');
+
+Route::get('/testAPI', [TestController::class, 'store']);
+
+// Route::get('/testAPI', 'App\Http\Controllers\TestController@store');
+
 
