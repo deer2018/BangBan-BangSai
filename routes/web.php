@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
-
+use App\Http\Controllers\MylogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('mylog', 'MylogController');
+
+Route::resource('/mylog', MylogController::class);
 
 Route::get('/testAPI', [TestController::class, 'store']);
 
-// Route::get('/testAPI', 'App\Http\Controllers\TestController@store');
+
 
 
