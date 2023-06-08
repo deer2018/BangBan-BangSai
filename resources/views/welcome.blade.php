@@ -21,11 +21,11 @@
             .centerPage{
                 display: flex;
                 justify-content: center;
-                align-items: center;
+                background-color: darkcyan;
             }
         </style>
     </head>
-    <body>
+    <body style="background-color: rgb(207, 207, 207)">
         <div class="centerPage">
             <h1 class="text-success">ยินดีต้อนรับสู่ แพลทฟอร์มบางบาล - บางไทร </h1>
         </div>
