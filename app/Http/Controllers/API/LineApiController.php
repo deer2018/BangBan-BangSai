@@ -9,11 +9,7 @@ class LineApiController extends Controller
 {
     public function store(Request $request)
     {
-        return "mummy";
+        // return "mummy";
     }
 
-    public function test(Request $request)
-    {
-        return "mummy";
-    }
 }
