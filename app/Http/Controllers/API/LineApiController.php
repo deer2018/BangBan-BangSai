@@ -17,6 +17,7 @@ class LineApiController extends Controller
             "content" => json_encode($requestData, JSON_UNESCAPED_UNICODE),
         ];
         MyLog::create($data);
+// fdfdf
 
         //GET ONLY FIRST EVENT
         // $event = $requestData["events"][0];
