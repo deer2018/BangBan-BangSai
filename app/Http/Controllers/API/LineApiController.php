@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Mylog;
+use Intervention\Image\ImageManager;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class LineApiController extends Controller
 {
@@ -53,9 +55,10 @@ class LineApiController extends Controller
     {
         //LOAD REMOTE IMAGE AND SAVE TO LOCAL
         $binary_data  = $this->getImageFromLine($event["message"]["id"]);
-        $filename = $this->random_string(50).".png";
+        $filename = $this->random_string(20).".png";
         $new_path = storage_path('app/public/uploads/ocr/'.$filename);
-        // Image::make($binary_data)->save($new_path);
+
+        Image::make($binary_data)->save($new_path);
 
         $template_path = storage_path('../public/json/text.json');
         $string_json = file_get_contents($template_path);
