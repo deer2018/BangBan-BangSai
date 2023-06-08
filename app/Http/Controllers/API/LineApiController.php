@@ -20,29 +20,71 @@ class LineApiController extends Controller
         MyLog::create($data);
 
         //GET ONLY FIRST EVENT
-        // $event = $requestData["events"][0];
+        $event = $requestData["events"][0];
 
-        // switch($event["type"]){
-        //     case "message" :
-        //         $this->messageHandler($event);
-        //         break;
-        //     case "postback" :
-        //         $this->postbackHandler($event);
-        //         break;
-        //     case "join" :
-        //         $this->save_group_line($event);
-        //         break;
-        //     case "follow" :
-        //         $this->user_follow_line($event);
-        //         DB::table('users')
-        //             ->where([
-        //                     ['type', 'line'],
-        //                     ['provider_id', $event['source']['userId']],
-        //                     ['status', "active"]
-        //                 ])
-        //             ->update(['add_line' => 'Yes']);
-        //         break;
-        // }
+        switch($event["type"]){
+            case "message" :
+                // $this->messageHandler($event);
+                break;
+            case "postback" :
+                // $this->postbackHandler($event);
+                break;
+            case "join" :
+                // $this->save_group_line($event);
+                break;
+            case "image" :
+                $this->image_convert($event);
+                break;
+            // case "follow" :
+            //     $this->user_follow_line($event);
+            //     DB::table('users')
+            //         ->where([
+            //                 ['type', 'line'],
+            //                 ['provider_id', $event['source']['userId']],
+            //                 ['status', "active"]
+            //             ])
+            //         ->update(['add_line' => 'Yes']);
+            //     break;
+        }
+    }
+
+    public function image_convert($event)
+    {
+        $template_path = storage_path('../public/json/text.json');
+        $string_json = file_get_contents($template_path);
+
+        $string_json = str_replace("เปลี่ยนข้อความตรงนี้" , "สวัสดีค่ะ ได้รับรูปภาพแล้วค่ะ" ,$string_json);
+
+        $messages = [ json_decode($string_json, true) ];
+
+        $body = [
+            "replyToken" => $event["replyToken"],
+            "messages" => $messages,
+        ];
+
+        $opts = [
+            'http' =>[
+                'method'  => 'POST',
+                'header'  => "Content-Type: application/json \r\n".
+                            'Authorization: Bearer '.env('CHANNEL_ACCESS_TOKEN'),
+                'content' => json_encode($body, JSON_UNESCAPED_UNICODE),
+                //'timeout' => 60
+            ]
+        ];
+
+        $context  = stream_context_create($opts);
+        //https://api-data.line.me/v2/bot/message/11914912908139/content
+        $url = "https://api.line.me/v2/bot/message/reply";
+        $result = file_get_contents($url, false, $context);
+
+        //SAVE LOG
+        $data = [
+            "title" => "ตอบกลับผู้ใช้",
+            "content" => "สวัสดีค่ะ ได้รับรูปภาพแล้วค่ะ",
+        ];
+        MyLog::create($data);
+        return $result;
+
     }
 
 }
