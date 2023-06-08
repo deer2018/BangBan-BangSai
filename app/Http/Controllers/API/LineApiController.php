@@ -60,6 +60,11 @@ class LineApiController extends Controller
 
         Image::make($binary_data)->save($new_path);
 
+        $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
+        $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
+        $image->insert($watermark ,'bottom-right', 385, 150);
+        $image->save();
+
         $template_path = storage_path('../public/json/flex_img.json');
         $string_json = file_get_contents($template_path);
 
