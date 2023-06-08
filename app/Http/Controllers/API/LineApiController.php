@@ -51,6 +51,12 @@ class LineApiController extends Controller
 
     public function image_convert($event)
     {
+        //LOAD REMOTE IMAGE AND SAVE TO LOCAL
+        $binary_data  = $this->getImageFromLine($event["message"]["id"]);
+        $filename = $this->random_string(50).".png";
+        $new_path = storage_path('app/public/uploads/ocr/'.$filename);
+        // Image::make($binary_data)->save($new_path);
+
         $template_path = storage_path('../public/json/text.json');
         $string_json = file_get_contents($template_path);
 
@@ -86,6 +92,23 @@ class LineApiController extends Controller
         MyLog::create($data);
         return $result;
 
+    }
+
+    public function getImageFromLine($id){
+        $opts = array('http' =>[
+                'method'  => 'GET',
+                //'header'  => "Content-Type: text/xml\r\n".
+                'header' => 'Authorization: Bearer '.env('CHANNEL_ACCESS_TOKEN'),
+                //'content' => $body,
+                //'timeout' => 60
+            ]
+        );
+
+        $context  = stream_context_create($opts);
+        //https://api-data.line.me/v2/bot/message/11914912908139/content
+        $url = "https://api-data.line.me/v2/bot/message/{$id}/content";
+        $result = file_get_contents($url, false, $context);
+        return $result;
     }
 
 }
