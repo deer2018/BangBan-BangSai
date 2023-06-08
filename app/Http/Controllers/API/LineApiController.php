@@ -60,10 +60,11 @@ class LineApiController extends Controller
 
         Image::make($binary_data)->save($new_path);
 
-        $template_path = storage_path('../public/json/text.json');
+        $template_path = storage_path('../public/json/flex_img.json');
         $string_json = file_get_contents($template_path);
 
-        $string_json = str_replace("เปลี่ยนข้อความตรงนี้" , "สวัสดีค่ะ ได้รับรูปภาพแล้วค่ะ" ,$string_json);
+        $string_json = str_replace("ตัวอย่าง" , 'ส่งรูปภาพ' ,$string_json);
+        $string_json = str_replace("FILENAME" , $filename ,$string_json);
 
         $messages = [ json_decode($string_json, true) ];
 

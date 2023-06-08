@@ -1,0 +1,26 @@
+
+{
+  "type": "flex",
+  "altText": "ตัวอย่าง",
+  "contents": {
+
+      "type": "bubble",
+      "size": "giga",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "size": "full",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "gravity": "center",
+            "url": "https://bangban-bangsai.viicheck.com/storage/uploads/ocr/FILENAME"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    }
+
+}

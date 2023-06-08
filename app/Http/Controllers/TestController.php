@@ -13,25 +13,59 @@ class TestController extends Controller
     public function store()
     {
 
-    	$image = Image::make(public_path('img/พื้นหลัง/พื้นหลัง-05.png'));
+    	$text_json = '{"destination":"Ubf0ea4dab738442af3d0d9092c62ac5f","events":[{"type":"message","message":{"type":"image","id":"458666893059293493","contentProvider":{"type":"line"}},"webhookEventId":"01H2D6VWJFHAXZE3VSAQZDFGFB","deliveryContext":{"isRedelivery":false},"timestamp":1686218076739,"source":{"type":"user","userId":"Ua561f9244840375d1d97d7550d22fb68"},"replyToken":"b93c5b87e0dd42bfa10e15ab5631429f","mode":"active"}]}';
 
-	    $watermark_2 = Image::make( public_path('img/logo/green-logo-01.png') );
-	    $image->insert($watermark_2 ,'bottom-right', 385, 150);
+    	$sss = json_decode($text_json, true);
+    	$event = $sss["events"][0];
 
-        $filename = $this->random_string(10).".png";
-        $image->save( public_path('img/พื้นหลัง/' . $filename) );
+    	// dd($event);
+    	echo "<pre>";
+    	print_r($event);
+    	echo "<pre>";
+
+    	//LOAD REMOTE IMAGE AND SAVE TO LOCAL
+        $binary_data  = $this->getImageFromLine($event["message"]["id"]);
+        $filename = $this->random_string(20).".png";
+        $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
+
+        Image::make($binary_data)->save($new_path);
+
+    	// $image = Image::make(public_path('img/พื้นหลัง/พื้นหลัง-05.png'));
+
+	    // $watermark_2 = Image::make( public_path('img/logo/green-logo-01.png') );
+	    // $image->insert($watermark_2 ,'bottom-right', 385, 150);
+
+     //    $filename = $this->random_string(10).".png";
+     //    $image->save( public_path('img/พื้นหลัง/' . $filename) );
 
         return view('welcome');
+    }
+
+    public function getImageFromLine($id){
+        $opts = array('http' =>[
+                'method'  => 'GET',
+                //'header'  => "Content-Type: text/xml\r\n".
+                'header' => 'Authorization: Bearer '.env('CHANNEL_ACCESS_TOKEN'),
+                //'content' => $body,
+                //'timeout' => 60
+            ]
+        );
+
+        $context  = stream_context_create($opts);
+        //https://api-data.line.me/v2/bot/message/11914912908139/content
+        $url = "https://api-data.line.me/v2/bot/message/{$id}/content";
+        $result = file_get_contents($url, false, $context);
+        return $result;
     }
 
     public function random_string($length) {
         $key = '';
         $keys = array_merge(range(0, 9), range('a', 'z'));
-    
+
         for ($i = 0; $i < $length; $i++) {
             $key .= $keys[array_rand($keys)];
         }
-    
+
         return $key;
     }
 }
