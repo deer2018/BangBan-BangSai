@@ -75,10 +75,13 @@ class TestController extends Controller
 
     	$sss = json_decode($text_json, true);
     	$event = $sss["events"][0];
-        dd($event);
         //LOAD REMOTE IMAGE AND SAVE TO LOCAL
         $binary_data  = $this->getImageFromLine($event["message"]["id"]);
 
+        echo"<pre>";
+        print_r($binary_data);
+        echo"</pre>";
+        exit();
 
         $filename = $this->random_string(20).".png";
         $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
