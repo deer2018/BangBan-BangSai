@@ -69,7 +69,7 @@ class LineApiController extends Controller
             [
                 'type' => 'image',
                 'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
-                'previewImageUrl' => 'https://www.viicheck.com/Medilab/img/icon.png', // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
+                'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
             ]
         ];
 
