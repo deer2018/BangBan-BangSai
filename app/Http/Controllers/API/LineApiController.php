@@ -55,7 +55,6 @@ class LineApiController extends Controller
     {
         //LOAD REMOTE IMAGE AND SAVE TO LOCAL
         $binary_data  = $this->getImageFromLine($event["message"]["id"]);
-
         $filename = $this->random_string(20).".png";
         $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
 
@@ -66,34 +65,31 @@ class LineApiController extends Controller
         $image->insert($watermark ,'bottom-right', 385, 150);
         $image->save();
 
-        // Convert image data to base64
-        // $image_data = base64_encode(file_get_contents($new_path));
+        $template_path = storage_path('../public/json/flex_img.json');
+        $string_json = file_get_contents($template_path);
 
-        $messages = [
-            [
-                'type' => 'image',
-                'originalContentUrl' => 'https://www.mithcare.com/'.$image, // Replace with the URL of the image to send
-                'previewImageUrl' => 'https://www.mithcare.com/'.$image, // Replace with the URL of a preview image
-            ]
-        ];
+        $string_json = str_replace("ตัวอย่าง" , 'ส่งรูปภาพ' ,$string_json);
+        $string_json = str_replace("FILENAME" , $filename ,$string_json);
+
+        $messages = [ json_decode($string_json, true) ];
 
         $body = [
             "replyToken" => $event["replyToken"],
             "messages" => $messages,
         ];
 
-        $content = json_encode($body);
-
         $opts = [
             'http' =>[
                 'method'  => 'POST',
                 'header'  => "Content-Type: application/json \r\n".
                             'Authorization: Bearer '.env('CHANNEL_ACCESS_TOKEN'),
-                'content' => $content,
+                'content' => json_encode($body, JSON_UNESCAPED_UNICODE),
+                //'timeout' => 60
             ]
         ];
 
         $context  = stream_context_create($opts);
+        //https://api-data.line.me/v2/bot/message/11914912908139/content
         $url = "https://api.line.me/v2/bot/message/reply";
         $result = file_get_contents($url, false, $context);
 
