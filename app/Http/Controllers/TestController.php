@@ -55,6 +55,8 @@ class TestController extends Controller
 
         //LOAD REMOTE IMAGE AND SAVE TO LOCAL
         $binary_data  = $this->getImageFromLine($event["message"]["id"]);
+
+        dd($binary_data);
         $filename = $this->random_string(20).".png";
         $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
 
