@@ -78,10 +78,10 @@ class TestController extends Controller
         //LOAD REMOTE IMAGE AND SAVE TO LOCAL
         $binary_data  = $this->getImageFromLine($event["message"]["id"]);
 
-        echo"<pre>";
-        print_r($binary_data);
-        echo"</pre>";
-        exit();
+        // echo"<pre>";
+        // print_r($binary_data);
+        // echo"</pre>";
+        // exit();
 
         $filename = $this->random_string(20).".png";
         $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
@@ -99,7 +99,7 @@ class TestController extends Controller
         $messages = [
             [
                 'type' => 'image',
-                'originalContentUrl' => 'https://www.mithcare.com/'.$new_path, // Replace with the URL of the image to send
+                'originalContentUrl' => 'https://www.mithcare.com/'.$image, // Replace with the URL of the image to send
                 'previewImageUrl' => 'https://www.mithcare.com/'.$image, // Replace with the URL of a preview image
             ]
         ];
