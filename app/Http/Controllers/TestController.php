@@ -48,15 +48,38 @@ class TestController extends Controller
 
     public function image_convert()
     {
-        $text_json = '{"destination":"Ubf0ea4dab738442af3d0d9092c62ac5f","events":[{"type":"message","message":{"type":"image","id":"458666893059293493","contentProvider":{"type":"line"}},"webhookEventId":"01H2D6VWJFHAXZE3VSAQZDFGFB","deliveryContext":{"isRedelivery":false},"timestamp":1686218076739,"source":{"type":"user","userId":"Ua561f9244840375d1d97d7550d22fb68"},"replyToken":"b93c5b87e0dd42bfa10e15ab5631429f","mode":"active"}]}';
+        $text_json = '{
+            "destination": "Ubf0ea4dab738442af3d0d9092c62ac5f",
+            "events": [
+                {
+                    "type": "message",
+                    "message": {
+                        "type": "text",
+                        "id": "459507626582475378",
+                        "text": "……."
+                    },
+                    "webhookEventId": "01H2W4RQYCFZKXTVFNTZJY754K",
+                    "deliveryContext": {
+                        "isRedelivery": false
+                    },
+                    "timestamp": 1686719192588,
+                    "source": {
+                        "type": "user",
+                        "userId": "Ua561f9244840375d1d97d7550d22fb68"
+                    },
+                    "replyToken": "d3504663c20d482d9dc40796442e38e4",
+                    "mode": "active"
+                }
+            ]
+        }';
 
     	$sss = json_decode($text_json, true);
     	$event = $sss["events"][0];
-
+        dd($event);
         //LOAD REMOTE IMAGE AND SAVE TO LOCAL
         $binary_data  = $this->getImageFromLine($event["message"]["id"]);
 
-        dd($binary_data);
+
         $filename = $this->random_string(20).".png";
         $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
 
