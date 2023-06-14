@@ -23,6 +23,7 @@ Route::get('/', function () {
 Route::resource('/mylog', MylogController::class);
 
 Route::get('/testAPI', [TestController::class, 'store']);
+Route::get('/testLine', [TestController::class, 'image_convert']);
 
 
 

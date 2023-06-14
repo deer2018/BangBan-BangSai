@@ -20,9 +20,9 @@ class TestController extends Controller
     	$event = $sss["events"][0];
 
     	// dd($event);
-    	echo "<pre>";
-    	print_r($event);
-    	echo "<pre>";
+    	// echo "<pre>";
+    	// print_r($event);
+    	// echo "<pre>";
 
     	//LOAD REMOTE IMAGE AND SAVE TO LOCAL
         $binary_data  = $this->getImageFromLine($event["message"]["id"]);
@@ -48,6 +48,11 @@ class TestController extends Controller
 
     public function image_convert($event)
     {
+        $text_json = '{"destination":"Ubf0ea4dab738442af3d0d9092c62ac5f","events":[{"type":"message","message":{"type":"image","id":"458666893059293493","contentProvider":{"type":"line"}},"webhookEventId":"01H2D6VWJFHAXZE3VSAQZDFGFB","deliveryContext":{"isRedelivery":false},"timestamp":1686218076739,"source":{"type":"user","userId":"Ua561f9244840375d1d97d7550d22fb68"},"replyToken":"b93c5b87e0dd42bfa10e15ab5631429f","mode":"active"}]}';
+
+    	$sss = json_decode($text_json, true);
+    	$event = $sss["events"][0];
+
         //LOAD REMOTE IMAGE AND SAVE TO LOCAL
         $binary_data  = $this->getImageFromLine($event["message"]["id"]);
         $filename = $this->random_string(20).".png";
