@@ -68,8 +68,8 @@ class LineApiController extends Controller
         $messages = [
             [
                 'type' => 'image',
-                'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/ofxh0pbxp9v6lspd3q3x.png', // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
-                'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/ofxh0pbxp9v6lspd3q3x.png', // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
+                'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
+                'previewImageUrl' => 'https://www.viicheck.com/Medilab/img/icon.png', // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
             ]
         ];
 
