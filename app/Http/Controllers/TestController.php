@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use Intervention\Image\ImageManagerStatic as Image;
+use App\Models\Mylog;
 
 class TestController extends Controller
 {
@@ -28,6 +29,8 @@ class TestController extends Controller
         $filename = $this->random_string(20).".png";
         $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
 
+        $image_data = base64_encode(file_get_contents($new_path));
+
         Image::make($binary_data)->save($new_path);
 
     	// $image = Image::make(public_path('img/พื้นหลัง/พื้นหลัง-05.png'));
@@ -38,8 +41,65 @@ class TestController extends Controller
      //    $filename = $this->random_string(10).".png";
      //    $image->save( public_path('img/พื้นหลัง/' . $filename) );
 
+
+
         return view('welcome');
     }
+
+    public function image_convert($event)
+    {
+        //LOAD REMOTE IMAGE AND SAVE TO LOCAL
+        $binary_data  = $this->getImageFromLine($event["message"]["id"]);
+        $filename = $this->random_string(20).".png";
+        $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
+
+        Image::make($binary_data)->save($new_path);
+
+        $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
+        $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
+        $image->insert($watermark ,'bottom-right', 385, 150);
+        $image->save();
+
+        // Convert image data to base64
+        // $image_data = base64_encode(file_get_contents($new_path));
+
+        $messages = [
+            [
+                'type' => 'image',
+                'originalContentUrl' => 'https://www.mithcare.com/'.$new_path, // Replace with the URL of the image to send
+                'previewImageUrl' => 'https://www.mithcare.com/'.$image, // Replace with the URL of a preview image
+            ]
+        ];
+
+        $body = [
+            "replyToken" => $event["replyToken"],
+            "messages" => $messages,
+        ];
+
+        $content = json_encode($body);
+
+        $opts = [
+            'http' =>[
+                'method'  => 'POST',
+                'header'  => "Content-Type: application/json \r\n".
+                            'Authorization: Bearer '.env('CHANNEL_ACCESS_TOKEN'),
+                'content' => $content,
+            ]
+        ];
+
+        $context  = stream_context_create($opts);
+        $url = "https://api.line.me/v2/bot/message/reply";
+        $result = file_get_contents($url, false, $context);
+
+        //SAVE LOG
+        $data = [
+            "title" => "ตอบกลับผู้ใช้",
+            "content" => "สวัสดีค่ะ ได้รับรูปภาพแล้วค่ะ",
+        ];
+        MyLog::create($data);
+        return $result;
+    }
+
 
     public function getImageFromLine($id){
         $opts = array('http' =>[
