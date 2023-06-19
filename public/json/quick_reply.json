@@ -1,20 +1,20 @@
  {
-  	// "type": "text",
-   //  "text": "Hello Quick Reply!",
+  	"type": "text",
+    "text": "เลือกการอัพโหลด",
 	"quickReply": {
 	  "items": [
 	    {
 	      "type": "action",
 	      "action": {
 	        "type": "cameraRoll",
-	        "label": "Send photo"
+	        "label": "เลือกจากแกลเลอรี่"
 	      }
 	    },
 	    {
 	      "type": "action",
 	      "action": {
 	        "type": "camera",
-	        "label": "Open camera"
+	        "label": "ถ่ายภาพใหม่"
 	      },
 	      "sender": {
 		    "name": "ถ่ายใหม่",
