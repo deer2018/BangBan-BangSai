@@ -63,8 +63,8 @@ class LineApiController extends Controller
         $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
         $image->resize(1080,1920);
         $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
-        $watermark->resize(100, 100);
-        $image->insert($watermark ,'bottom-right', 10, 10);
+        $watermark->resize(250, 250);
+        $image->insert($watermark ,'top-right', 10, 10);
 
         // define polygon points
         $points = [
