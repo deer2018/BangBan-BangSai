@@ -12,11 +12,7 @@
       "action": {
         "type": "camera",
         "label": "Open camera"
-      },
-      "sender": {
-	    "name": "ถ่ายใหม่",
-	    "iconUrl": "https://bangban-bangsai.viicheck.com/img/icon/camera.png"
-	  }
+      }
     }
   ]
 }
