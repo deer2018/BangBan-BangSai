@@ -62,18 +62,16 @@ class LineApiController extends Controller
 
         $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
         $image->resize(500, 500);
-        $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
+        $watermark = Image::make( public_path('img/logo/logo_x-icon.png') );
         $watermark->resize(100, 100);
         $image->insert($watermark ,'bottom-right', 50, 50);
 
         // define polygon points
         $points = [
-            40,  50,  // Point 1 (x, y)
-            20,  240, // Point 2 (x, y)
-            60,  60,  // Point 3 (x, y)
-            240, 20,  // Point 4 (x, y)
-            50,  40,  // Point 5 (x, y)
-            10,  10   // Point 6 (x, y)
+            230,  450,  // Point 1 (x, y)
+            230,  200, // Point 2 (x, y)
+            260,  200,  // Point 3 (x, y)
+            260, 450,  // Point 4 (x, y)
         ];
 
         // draw a filled blue polygon with red border
