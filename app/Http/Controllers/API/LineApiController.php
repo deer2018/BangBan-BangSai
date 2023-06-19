@@ -148,9 +148,9 @@ class LineApiController extends Controller
             case "ระดับน้ำ" :  
                 $this->replyToUser(null, $event, "water level");
                 break;
-            default :
-                $this->replyToUser(null, $event, $event["message"]["text"]);
-                break;
+            // default :
+            //     $this->replyToUser(null, $event, $event["message"]["text"]);
+            //     break;
         } 
     }
 
@@ -164,15 +164,15 @@ class LineApiController extends Controller
 
                 $messages = [ json_decode($string_json, true) ]; 
             break;
-            case $message_type:
-                $template_path = storage_path('../public/json/text.json');   
-                $string_json = file_get_contents($template_path);
+            // case $message_type:
+            //     $template_path = storage_path('../public/json/text.json');   
+            //     $string_json = file_get_contents($template_path);
 
-                $string_json = str_replace("ตัวอย่าง" , $message_type ,$string_json);
-                $string_json = str_replace("เปลี่ยนข้อความตรงนี้" , $message_type ,$string_json);
+            //     $string_json = str_replace("ตัวอย่าง" , $message_type ,$string_json);
+            //     $string_json = str_replace("เปลี่ยนข้อความตรงนี้" , $message_type ,$string_json);
 
-                $messages = [ json_decode($string_json, true) ]; 
-            break;
+            //     $messages = [ json_decode($string_json, true) ]; 
+            // break;
         }
 
         $body = [
