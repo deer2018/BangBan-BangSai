@@ -82,13 +82,21 @@ class LineApiController extends Controller
 
         $image->save();
 
-        $template_path = storage_path('../public/json/flex_img.json');
-        $string_json = file_get_contents($template_path);
+        // $template_path = storage_path('../public/json/flex_img.json');
+        // $string_json = file_get_contents($template_path);
 
-        $string_json = str_replace("ตัวอย่าง" , 'ส่งรูปภาพ' ,$string_json);
-        $string_json = str_replace("FILENAME" , $filename ,$string_json);
+        // $string_json = str_replace("ตัวอย่าง" , 'ส่งรูปภาพ' ,$string_json);
+        // $string_json = str_replace("FILENAME" , $filename ,$string_json);
 
-        $messages = [ json_decode($string_json, true) ];
+        // $messages = [ json_decode($string_json, true) ];
+
+        $messages = [
+            [
+                'type' => 'image',
+                'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
+                'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
+            ]
+        ];
 
         $body = [
             "replyToken" => $event["replyToken"],
