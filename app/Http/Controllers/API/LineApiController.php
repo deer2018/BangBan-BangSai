@@ -61,8 +61,10 @@ class LineApiController extends Controller
         Image::make($binary_data)->save($new_path);
 
         $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
+        $image->resize(500, 500);
         $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
-        $image->insert($watermark ,'bottom-right', 385, 150);
+        $watermark->resize(100, 100);
+        $image->insert($watermark ,'bottom-right', 50, 50);
 
         // define polygon points
         $points = [
@@ -81,7 +83,7 @@ class LineApiController extends Controller
         });
 
         $image->save();
-        
+
         $template_path = storage_path('../public/json/flex_img.json');
         $string_json = file_get_contents($template_path);
 
