@@ -1,9 +1,4 @@
-
-{
-  "type": "flex",
-  "altText": "ตัวอย่าง",
-  "contents": {
-
+ {
   	"type": "text",
     "text": "Hello Quick Reply!",
 	"quickReply": {
