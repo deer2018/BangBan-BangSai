@@ -66,7 +66,7 @@ class LineApiController extends Controller
 
         // define polygon points
         $points = [
-            385, 150,  // Point 1 (x, y)
+            40,  50,  // Point 1 (x, y)
             20,  240, // Point 2 (x, y)
             60,  60,  // Point 3 (x, y)
             240, 20,  // Point 4 (x, y)
