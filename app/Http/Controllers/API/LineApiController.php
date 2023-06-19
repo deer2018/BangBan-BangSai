@@ -66,6 +66,8 @@ class LineApiController extends Controller
             $constraint->aspectRatio();
             $constraint->upsize();
         });
+        $image->save();
+        
         $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
         $watermark->resize(100, 100);
         $image->insert($watermark ,'bottom-right', 50, 50);
