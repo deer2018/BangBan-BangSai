@@ -68,10 +68,10 @@ class LineApiController extends Controller
 
         // define polygon points
         $points = [
-            240,  240,  // Point 1 (x, y)
-            260,  240, // Point 2 (x, y)
-            260,  260,  // Point 3 (x, y)
-            240, 260  // Point 4 (x, y)
+            240,  260,  // Point 1 (x, y)
+            260,  260, // Point 2 (x, y)
+            260,  450,  // Point 3 (x, y)
+            240, 450  // Point 4 (x, y)
         ];
 
         // draw a filled blue polygon with red border
