@@ -71,7 +71,9 @@ class LineApiController extends Controller
             230,  450,  // Point 1 (x, y)
             230,  200, // Point 2 (x, y)
             260,  200,  // Point 3 (x, y)
-            260, 450  // Point 4 (x, y)
+            260, 450,  // Point 4 (x, y)
+            260,  450,  // Point 5 (x, y)
+            230,  450   // Point 6 (x, y)
         ];
 
         // draw a filled blue polygon with red border
