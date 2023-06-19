@@ -29,7 +29,7 @@ class LineApiController extends Controller
                 if($event["message"]["type"] == "image"){
                     $this->image_convert($event);
                 }else{
-                    // $this->messageHandler($event);
+                    $this->messageHandler($event);
                 }
                 break;
             case "postback" :
@@ -129,6 +129,69 @@ class LineApiController extends Controller
         }
 
         return $key;
+    }
+
+    public function messageHandler($event)
+    {
+        switch($event["message"]["type"]){
+            case "text" : 
+                $this->textHandler($event);
+                break;
+        }   
+
+    }
+
+    public function textHandler($event)
+    {
+            
+        switch( strtolower($event["message"]["text"]) ){     
+            case "ระดับน้ำ" :  
+                $this->replyToUser(null, $event, "ระดับน้ำ");
+                break;
+        } 
+    }
+
+    public function replyToUser($data, $event, $message_type)
+    {
+        switch($message_type)
+        {
+             case 'ระดับน้ำ':
+                $template_path = storage_path('../public/json/quick_reply.json');   
+                $string_json = file_get_contents($template_path);
+
+                $messages = [ json_decode($string_json, true) ]; 
+            break;
+        }
+
+        $body = [
+            "replyToken" => $event["replyToken"],
+            "messages" => $messages,
+        ];
+
+        $opts = [
+            'http' =>[
+                'method'  => 'POST',
+                'header'  => "Content-Type: application/json \r\n".
+                            'Authorization: Bearer '.env('CHANNEL_ACCESS_TOKEN'),
+                'content' => json_encode($body, JSON_UNESCAPED_UNICODE),
+                //'timeout' => 60
+            ]
+        ];
+                            
+        $context  = stream_context_create($opts);
+        //https://api-data.line.me/v2/bot/message/11914912908139/content
+        $url = "https://api.line.me/v2/bot/message/reply";
+        $result = file_get_contents($url, false, $context);
+
+        //SAVE LOG
+        $data = [
+            "title" => "reply Success",
+            "content" => "message >> " . $message_type,
+        ];
+        MyLog::create($data);
+
+        return $result;
+
     }
 
 }
