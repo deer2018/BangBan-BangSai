@@ -4,8 +4,8 @@
   "altText": "ตัวอย่าง",
   "contents": {
 
-  	// "type": "text",
-   //  "text": "Hello Quick Reply!",
+  	"type": "text",
+    "text": "Hello Quick Reply!",
 	"quickReply": {
 	  "items": [
 	    {

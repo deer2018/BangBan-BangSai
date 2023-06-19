@@ -65,32 +65,31 @@ class LineApiController extends Controller
         $image->insert($watermark ,'bottom-right', 385, 150);
         $image->save();
 
-        $messages = [
-            [
-                'type' => 'image',
-                'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
-                'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
-            ]
-        ];
+        $template_path = storage_path('../public/json/flex_img.json');
+        $string_json = file_get_contents($template_path);
+
+        $string_json = str_replace("ตัวอย่าง" , 'ส่งรูปภาพ' ,$string_json);
+        $string_json = str_replace("FILENAME" , $filename ,$string_json);
+
+        $messages = [ json_decode($string_json, true) ];
 
         $body = [
             "replyToken" => $event["replyToken"],
             "messages" => $messages,
         ];
 
-        $content = json_encode($body);
-
         $opts = [
-            'http' => [
+            'http' =>[
                 'method'  => 'POST',
                 'header'  => "Content-Type: application/json \r\n".
-                            "Content-Length: " . strlen($content) . "\r\n" .
                             'Authorization: Bearer '.env('CHANNEL_ACCESS_TOKEN'),
-                'content' => $content,
+                'content' => json_encode($body, JSON_UNESCAPED_UNICODE),
+                //'timeout' => 60
             ]
         ];
 
         $context  = stream_context_create($opts);
+        //https://api-data.line.me/v2/bot/message/11914912908139/content
         $url = "https://api.line.me/v2/bot/message/reply";
         $result = file_get_contents($url, false, $context);
 
@@ -147,7 +146,10 @@ class LineApiController extends Controller
             
         switch( strtolower($event["message"]["text"]) ){     
             case "ระดับน้ำ" :  
-                $this->replyToUser(null, $event, "ระดับน้ำ");
+                $this->replyToUser(null, $event, "water level");
+                break;
+            default :
+                $this->replyToUser(null, $event, $event["message"]["text"]);
                 break;
         } 
     }
@@ -156,9 +158,18 @@ class LineApiController extends Controller
     {
         switch($message_type)
         {
-             case 'ระดับน้ำ':
+            case 'water level':
                 $template_path = storage_path('../public/json/quick_reply.json');   
                 $string_json = file_get_contents($template_path);
+
+                $messages = [ json_decode($string_json, true) ]; 
+            break;
+            case $message_type:
+                $template_path = storage_path('../public/json/text.json');   
+                $string_json = file_get_contents($template_path);
+
+                $string_json = str_replace("ตัวอย่าง" , $message_type ,$string_json);
+                $string_json = str_replace("เปลี่ยนข้อความตรงนี้" , $message_type ,$string_json);
 
                 $messages = [ json_decode($string_json, true) ]; 
             break;
@@ -187,7 +198,7 @@ class LineApiController extends Controller
         //SAVE LOG
         $data = [
             "title" => "reply Success",
-            "content" => "message >> " . $message_type,
+            "content" => "message quickReply",
         ];
         MyLog::create($data);
 
