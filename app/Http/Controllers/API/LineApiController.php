@@ -62,7 +62,7 @@ class LineApiController extends Controller
 
         $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
         $image->resize(500, 500);
-        $watermark = Image::make( public_path('img/logo/logo_x-icon.png') );
+        $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
         $watermark->resize(100, 100);
         $image->insert($watermark ,'bottom-right', 50, 50);
 
