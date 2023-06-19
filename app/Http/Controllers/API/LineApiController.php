@@ -62,10 +62,11 @@ class LineApiController extends Controller
 
         $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
         $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
+        $image->resize(1000, 1000);
         $image->insert($watermark ,'bottom-right', 385, 150);
+        $image->save();
 
-        // // create empty canvas with background color
-        // $img = Image::canvas(800, 600, '#ddd');
+        $img = Image::canvas(800, 600, '#ddd');
 
         // define polygon points
         $points = [
@@ -78,12 +79,10 @@ class LineApiController extends Controller
         ];
 
         // draw a filled blue polygon with red border
-        $image->polygon($points, function ($draw) {
+        $img->polygon($points, function ($draw) {
             $draw->background('#0000ff');
             $draw->border(1, '#ff0000');
         });
-
-        $image->save();
 
         $template_path = storage_path('../public/json/flex_img.json');
         $string_json = file_get_contents($template_path);
