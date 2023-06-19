@@ -66,7 +66,7 @@ class LineApiController extends Controller
         $image->insert($watermark ,'bottom-right', 385, 150);
         $image->save();
 
-        $img = Image::canvas(800, 600, '#ddd');
+        $image = Image::canvas(800, 600, '#ddd');
 
         // define polygon points
         $points = [
@@ -79,7 +79,7 @@ class LineApiController extends Controller
         ];
 
         // draw a filled blue polygon with red border
-        $img->polygon($points, function ($draw) {
+        $image->polygon($points, function ($draw) {
             $draw->background('#0000ff');
             $draw->border(1, '#ff0000');
         });
