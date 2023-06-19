@@ -1,18 +1,32 @@
-"quickReply": {
-  "items": [
-    {
-      "type": "action",
-      "action": {
-        "type": "cameraRoll",
-        "label": "Send photo"
-      }
-    },
-    {
-      "type": "action",
-      "action": {
-        "type": "camera",
-        "label": "Open camera"
-      }
-    }
-  ]
+
+{
+  "type": "flex",
+  "altText": "ตัวอย่าง",
+  "contents": {
+
+  	// "type": "text",
+   //  "text": "Hello Quick Reply!",
+	"quickReply": {
+	  "items": [
+	    {
+	      "type": "action",
+	      "action": {
+	        "type": "cameraRoll",
+	        "label": "Send photo"
+	      }
+	    },
+	    {
+	      "type": "action",
+	      "action": {
+	        "type": "camera",
+	        "label": "Open camera"
+	      },
+	      "sender": {
+		    "name": "ถ่ายใหม่",
+		    "iconUrl": "https://bangban-bangsai.viicheck.com/img/icon/camera.png"
+		  }
+	    }
+	  ]
+	}
+
 }
