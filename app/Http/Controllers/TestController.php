@@ -75,13 +75,14 @@ class TestController extends Controller
 
     	$sss = json_decode($text_json, true);
     	$event = $sss["events"][0];
-        //LOAD REMOTE IMAGE AND SAVE TO LOCAL
-        $binary_data  = $this->getImageFromLine($event["message"]["id"]);
+        // //LOAD REMOTE IMAGE AND SAVE TO LOCAL
+        // $binary_data  = $this->getImageFromLine($event["message"]["id"]);
 
+        $img = Image::make('พื้นหลัง-05.png')->resize(1080,1920);
         $filename = $this->random_string(20).".png";
         $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
 
-        Image::make($binary_data)->save($new_path);
+        Image::make($img)->save($new_path);
 
         $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
         $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
