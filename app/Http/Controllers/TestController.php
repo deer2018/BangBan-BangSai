@@ -52,7 +52,7 @@ class TestController extends Controller
     }
 
 
-    public function image_convert()
+    public function image_convert($event)
     {
         //LOAD REMOTE IMAGE AND SAVE TO LOCAL
         // $binary_data  = $this->getImageFromLine($event["message"]["id"]);
@@ -62,26 +62,25 @@ class TestController extends Controller
         // Image::make($binary_data)->save($new_path);
 
         // $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
-        // $image = Image::make( storage_path('app/public').'/img/พื้นหลัง/ChartBG.png');
-        $image = Image::make( storage_path('app/public').'/uploads/img/ChartBG.png');
+        $image = Image::make( public_path('/img/พื้นหลัง/ChartBG.png'));
         $image->resize(1080,1920);
         $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
         $watermark->resize(250, 250);
         $image->insert($watermark ,'top-right', 10, 10);
 
-        // define polygon points
-        $points = [
-            240,  260,  // Point 1 (x, y)
-            260,  260, // Point 2 (x, y)
-            260,  450,  // Point 3 (x, y)
-            240, 450  // Point 4 (x, y)
-        ];
+        // // define polygon points
+        // $points = [
+        //     240,  260,  // Point 1 (x, y)
+        //     260,  260, // Point 2 (x, y)
+        //     260,  450,  // Point 3 (x, y)
+        //     240, 450  // Point 4 (x, y)
+        // ];
 
-        // draw a filled blue polygon with red border
-        $image->polygon($points, function ($draw) {
-            $draw->background('#0000ff');
-            $draw->border(1, '#ff0000');
-        });
+        // // draw a filled blue polygon with red border
+        // $image->polygon($points, function ($draw) {
+        //     $draw->background('#0000ff');
+        //     $draw->border(1, '#ff0000');
+        // });
 
         $image->save();
 
