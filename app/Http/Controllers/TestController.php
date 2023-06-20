@@ -52,10 +52,10 @@ class TestController extends Controller
     }
 
 
-    public function image_convert($event)
+    public function image_convert()
     {
         //LOAD REMOTE IMAGE AND SAVE TO LOCAL
-        $binary_data  = $this->getImageFromLine($event["message"]["id"]);
+        // $binary_data  = $this->getImageFromLine($event["message"]["id"]);
         // $filename = $this->random_string(20).".png";
         // $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
 
