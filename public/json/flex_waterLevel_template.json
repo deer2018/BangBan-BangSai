@@ -1,0 +1,86 @@
+{
+    "type": "bubble",
+    "size": "giga",
+    "hero": {
+      "type": "image",
+      "url": "https://bangban-bangsai.viicheck.com/img/พื้นหลัง/ChartBG.png",
+      "size": "full",
+      "aspectRatio": "20:13",
+      "aspectMode": "cover",
+      "action": {
+        "type": "uri",
+        "uri": "http://linecorp.com/"
+      }
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "สถานะ",
+          "weight": "bold",
+          "size": "xl",
+          "offsetStart": "40%"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "md",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "สถานที่",
+                  "color": "#aaaaaa",
+                  "size": "sm"
+                },
+                {
+                  "type": "text",
+                  "text": "place",
+                  "wrap": true,
+                  "color": "#666666",
+                  "size": "sm"
+                }
+              ],
+              "margin": "lg"
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "วัน-เวลา",
+                  "color": "#aaaaaa",
+                  "size": "sm"
+                },
+                {
+                  "type": "text",
+                  "text": "time",
+                  "wrap": true,
+                  "color": "#666666",
+                  "size": "sm"
+                },
+                {
+                  "type": "text",
+                  "text": "date",
+                  "wrap": true,
+                  "color": "#666666",
+                  "size": "sm"
+                }
+              ],
+              "margin": "lg"
+            }
+          ]
+        }
+      ],
+      "margin": "20px"
+    }
+  }
