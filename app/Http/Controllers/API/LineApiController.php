@@ -136,13 +136,14 @@ class LineApiController extends Controller
     {
         //LOAD REMOTE IMAGE AND SAVE TO LOCAL
         // $binary_data  = $this->getImageFromLine($event["message"]["id"]);
-        // $filename = $this->random_string(20).".png";
-        // $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
+        $filename = $this->random_string(20).".png";
+        $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
+        $image = Image::make( public_path('/img/พื้นหลัง/ChartBG.png'));
 
-        // Image::make($binary_data)->save($new_path);
+        Image::make($image)->save($new_path);
 
         // $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
-        $image = Image::make( public_path('/img/พื้นหลัง/ChartBG.png'));
+
         $image->resize(1080,1920);
         $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
         $watermark->resize(250, 250);
@@ -175,8 +176,10 @@ class LineApiController extends Controller
         $messages = [
             [
                 'type' => 'image',
-                'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$image, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
-                'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$image, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
+                // 'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$image, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
+                // 'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$image, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
+                'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/img/พื้นหลัง/'.$image, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
+                'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/img/พื้นหลัง/'.$image, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
             ]
         ];
 
