@@ -78,7 +78,8 @@ class TestController extends Controller
         // //LOAD REMOTE IMAGE AND SAVE TO LOCAL
         // $binary_data  = $this->getImageFromLine($event["message"]["id"]);
 
-        $img = Image::make('พื้นหลัง-05.png')->resize(1080,1920);
+        $img = Image::make('https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg');
+        $img->resize(1080 , 1920);
         $filename = $this->random_string(20).".png";
         $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
 
