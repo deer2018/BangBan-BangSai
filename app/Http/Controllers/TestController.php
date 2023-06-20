@@ -62,7 +62,8 @@ class TestController extends Controller
         // Image::make($binary_data)->save($new_path);
 
         // $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
-        $image = Image::make( storage_path('app/public').'/img/พื้นหลัง/ChartBG.png');
+        // $image = Image::make( storage_path('app/public').'/img/พื้นหลัง/ChartBG.png');
+        $image = Image::make( storage_path('app/public').'/uploads/img/ChartBG.png');
         $image->resize(1080,1920);
         $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
         $watermark->resize(250, 250);
