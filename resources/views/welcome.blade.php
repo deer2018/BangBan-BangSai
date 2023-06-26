@@ -17,6 +17,9 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+                background-image: url("https://www.khaosod.co.th/wpapp/uploads/2020/09/S__124108864.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
             }
             .centerPage{
                 display: flex;

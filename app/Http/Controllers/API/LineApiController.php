@@ -139,19 +139,19 @@ class LineApiController extends Controller
         $filename = $this->random_string(20).".png";
         $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
 
-        // $image = Image::make( public_path('/img/พื้นหลัง/ChartBG.png'));
-        // $image->resize(1080,1920);
+        $image = Image::make( public_path('/img/พื้นหลัง/ChartBG.png'));
+        $image->resize(1080,1920);
 
-        // Image::make($image)->save($new_path);
+        Image::make($image)->save($new_path);
 
         // $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
 
-        // $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
-        // $watermark->resize(250, 250);
-        // $image->insert($watermark ,'top-right', 10, 10);
+        $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
+        $watermark->resize(250, 250);
+        $image->insert($watermark ,'top-right', 10, 10);
 
-        // $headerBG = Image::make( public_path('img/พื้นหลัง/พื้นหลัง-05.png') );
-        // $headerBG->resize(20,0);
+        $headerBG = Image::make( public_path('img/พื้นหลัง/พื้นหลัง-05.png') );
+        $headerBG->resize(20,0);
 
         // // define polygon points
         // $points = [
@@ -169,25 +169,25 @@ class LineApiController extends Controller
 
         // $image->save();
 
-        $template_path = storage_path('../public/json/flex_waterLevel_template.json');
-        $string_json = file_get_contents($template_path);
+        // $template_path = storage_path('../public/json/flex_waterLevel_template.json');
+        // $string_json = file_get_contents($template_path);
 
-        $string_json = str_replace("สถานะ" , $filename ,$string_json);
-        $string_json = str_replace("place" , 'ส่งรูปภาพ' ,$string_json);
-        $string_json = str_replace("time" , $filename ,$string_json);
-        $string_json = str_replace("date" , $filename ,$string_json);
+        // $string_json = str_replace("สถานะ" , $filename ,$string_json);
+        // $string_json = str_replace("place" , 'ส่งรูปภาพ' ,$string_json);
+        // $string_json = str_replace("time" , $filename ,$string_json);
+        // $string_json = str_replace("date" , $filename ,$string_json);
 
-        $messages = [ json_decode($string_json, true) ];
+        // $messages = [ json_decode($string_json, true) ];
 
-        // $messages = [
-        //     [
-        //         'type' => 'image',
-        //         'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
-        //         'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
-        //         // 'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/img/พื้นหลัง/'.$image, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
-        //         // 'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/img/พื้นหลัง/'.$image, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
-        //     ]
-        // ];
+        $messages = [
+            [
+                'type' => 'image',
+                'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
+                'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
+                // 'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/img/พื้นหลัง/'.$image, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
+                // 'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/img/พื้นหลัง/'.$image, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
+            ]
+        ];
 
         $body = [
             "replyToken" => $event["replyToken"],
