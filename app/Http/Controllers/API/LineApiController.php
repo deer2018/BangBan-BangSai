@@ -135,20 +135,20 @@ class LineApiController extends Controller
     public function image_convert($event)
     {
         //รับ id รูปจากไลน์
-        // $binary_data  = $this->getImageFromLine($event["message"]["id"]);
-        // $filename = $this->random_string(20).".png";
-        // $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
+        $binary_data  = $this->getImageFromLine($event["message"]["id"]);
+        $filename = $this->random_string(20).".png";
+        $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
 
-        // Image::make($binary_data)->save($new_path);
+        Image::make($binary_data)->save($new_path);
 
-        // $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
-        // $image->resize(350,240);
+        $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
+        $image->resize(350,240);
 
         //FLEX LINE
         $template_path = storage_path('../public/json/flex_photo_for_waterlv.json');
         $string_json = file_get_contents($template_path);
 
-        // $string_json = str_replace("URL_IMAGE_FROMLINE" , 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename ,$string_json);
+        $string_json = str_replace("URL_IMAGE_FROMLINE" , 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename ,$string_json);
 
         $string_json = str_replace("day" , '12' ,$string_json);
         $string_json = str_replace("month" , 'jun' ,$string_json);
