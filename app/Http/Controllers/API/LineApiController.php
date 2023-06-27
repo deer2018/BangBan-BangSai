@@ -158,9 +158,9 @@ class LineApiController extends Controller
         $string_json = str_replace("อำเภอ" , 'อ.วิหารแดง' ,$string_json);
         $string_json = str_replace("จังหวัด" , 'จ.สระบุรี' ,$string_json);
 
-        $string_json = str_replace("year03" , '2554 (ปีวิกฤต)' ,$string_json);
-        $string_json = str_replace("year02" , '2565' ,$string_json);
-        $string_json = str_replace("year01" , '2566 (ปีปัจจุบัน)' ,$string_json);
+        $string_json = str_replace("ปีวิกฤต" , '2554 (ปีวิกฤต)' ,$string_json);
+        $string_json = str_replace("ปีก่อนหน้า" , '2565' ,$string_json);
+        $string_json = str_replace("ปีปัจจุบัน" , '2566 (ปีปัจจุบัน)' ,$string_json);
 
         $string_json = str_replace("y3w1" , '12' ,$string_json);
         $string_json = str_replace("y3t" , '12' ,$string_json);
