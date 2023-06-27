@@ -1,0 +1,215 @@
+{
+    "type": "bubble",
+    "size": "giga",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "image",
+          "url": "https://i.ibb.co/fp3KC9k/Flex-levelwater-bg.png",
+          "size": "full",
+          "aspectRatio": "600:600",
+          "aspectMode": "cover"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "URL_IMAGE_FROMLINE",
+              "size": "full",
+              "aspectRatio": "350:240",
+              "aspectMode": "cover"
+            }
+          ],
+          "offsetTop": "13%",
+          "offsetStart": "5%",
+          "position": "absolute",
+          "width": "350px",
+          "height": "240px",
+          "paddingAll": "0px",
+          "borderWidth": "light",
+          "borderColor": "#000000"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "image",
+              "url": "https://i.ibb.co/txX8ytZ/detail-waterlevel.png",
+              "size": "full",
+              "aspectRatio": "355:289"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "y3w1",
+                  "size": "13px",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "y3t",
+                  "size": "13px",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "y3w2",
+                  "size": "13px",
+                  "weight": "bold"
+                }
+              ],
+              "position": "absolute",
+              "offsetStart": "22%",
+              "offsetTop": "49.5%"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "y3w1",
+                  "size": "13px",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "y3t",
+                  "size": "13px",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "y3w2",
+                  "size": "13px",
+                  "weight": "bold"
+                }
+              ],
+              "position": "absolute",
+              "offsetStart": "55%",
+              "offsetTop": "49.5%"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "y3w1",
+                  "size": "13px",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "y3t",
+                  "size": "13px",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "y3w2",
+                  "size": "13px",
+                  "weight": "bold"
+                }
+              ],
+              "position": "absolute",
+              "offsetStart": "87%",
+              "offsetTop": "49.5%"
+            }
+          ],
+          "position": "absolute",
+          "width": "355px",
+          "height": "289px",
+          "paddingAll": "0px",
+          "offsetStart": "4%",
+          "offsetTop": "36%"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "day month : time น.",
+              "wrap": true
+            }
+          ],
+          "position": "absolute",
+          "offsetStart": "32%",
+          "offsetTop": "51%"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "สถานที่ :  ตำบล อำเภอ จังหวัด",
+              "wrap": true
+            }
+          ],
+          "position": "absolute",
+          "offsetStart": "15%",
+          "offsetTop": "58%"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "ปี03",
+              "wrap": true,
+              "size": "14px",
+              "weight": "bold"
+            }
+          ],
+          "position": "absolute",
+          "offsetStart": "16%",
+          "offsetTop": "66%"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "ปี02",
+              "wrap": true,
+              "size": "14px",
+              "weight": "bold"
+            }
+          ],
+          "position": "absolute",
+          "offsetStart": "46.5%",
+          "offsetTop": "66%"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "ปี01",
+              "wrap": true,
+              "size": "14px",
+              "weight": "bold"
+            }
+          ],
+          "position": "absolute",
+          "offsetStart": "76%",
+          "offsetTop": "66%"
+        }
+      ],
+      "position": "relative",
+      "paddingAll": "0px"
+    }
+  }

@@ -134,60 +134,57 @@ class LineApiController extends Controller
 
     public function image_convert($event)
     {
-        //LOAD REMOTE IMAGE AND SAVE TO LOCAL
-        // $binary_data  = $this->getImageFromLine($event["message"]["id"]);
+        //รับ id รูปจากไลน์
+        $binary_data  = $this->getImageFromLine($event["message"]["id"]);
         $filename = $this->random_string(20).".png";
         $new_path = storage_path('app/public').'/uploads/ocr/'.$filename;
 
-        $image = Image::make( public_path('/img/พื้นหลัง/ChartBG.png'));
-        $image->resize(1080,1920);
+        Image::make($binary_data)->save($new_path);
 
-        Image::make($image)->save($new_path);
+        $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
+        $image->resize(350,240);
 
-        // $image = Image::make( storage_path('app/public').'/uploads/ocr/'.$filename );
+        //FLEX LINE
+        $template_path = storage_path('../public/json/flex_photo_for_waterlv.json');
+        $string_json = file_get_contents($template_path);
 
-        $watermark = Image::make( public_path('img/logo/green-logo-01.png') );
-        $watermark->resize(250, 250);
-        $image->insert($watermark ,'top-right', 10, 10);
+        $string_json = str_replace("URL_IMAGE_FROMLINE" , 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename ,$string_json);
 
-        $headerBG = Image::make( public_path('img/พื้นหลัง/พื้นหลัง-05.png') );
-        $headerBG->resize(20,0);
+        $string_json = str_replace("day" , '12' ,$string_json);
+        $string_json = str_replace("month" , 'jun' ,$string_json);
+        $string_json = str_replace("time" , '12.00' ,$string_json);
 
-        // // define polygon points
-        // $points = [
-        //     240,  260,  // Point 1 (x, y)
-        //     260,  260, // Point 2 (x, y)
-        //     260,  450,  // Point 3 (x, y)
-        //     240, 450  // Point 4 (x, y)
+        $string_json = str_replace("ตำบล" , 'ต.หนองหมู' ,$string_json);
+        $string_json = str_replace("อำเภอ" , 'อ.วิหารแดง' ,$string_json);
+        $string_json = str_replace("จังหวัด" , 'จ.สระบุรี' ,$string_json);
+
+        $string_json = str_replace("year03" , '2554 (ปีวิกฤต)' ,$string_json);
+        $string_json = str_replace("year02" , '2565' ,$string_json);
+        $string_json = str_replace("year01" , '2566 (ปีปัจจุบัน)' ,$string_json);
+
+        $string_json = str_replace("y3w1" , '12' ,$string_json);
+        $string_json = str_replace("y3t" , '12' ,$string_json);
+        $string_json = str_replace("y3w2" , '12' ,$string_json);
+
+        $string_json = str_replace("y2w1" , '12' ,$string_json);
+        $string_json = str_replace("y2t" , '12' ,$string_json);
+        $string_json = str_replace("y2w2" , '12' ,$string_json);
+
+        $string_json = str_replace("y1w1" , '12' ,$string_json);
+        $string_json = str_replace("y1t" , '12' ,$string_json);
+        $string_json = str_replace("y1w2" , '12' ,$string_json);
+
+        $messages = [ json_decode($string_json, true) ];
+
+        // $messages = [
+        //     [
+        //         'type' => 'image',
+        //         'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
+        //         'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
+        //         // 'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/img/พื้นหลัง/'.$image, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
+        //         // 'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/img/พื้นหลัง/'.$image, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
+        //     ]
         // ];
-
-        // // draw a filled blue polygon with red border
-        // $image->polygon($points, function ($draw) {
-        //     $draw->background('#0000ff');
-        //     $draw->border(1, '#ff0000');
-        // });
-
-        // $image->save();
-
-        // $template_path = storage_path('../public/json/flex_waterLevel_template.json');
-        // $string_json = file_get_contents($template_path);
-
-        // $string_json = str_replace("สถานะ" , $filename ,$string_json);
-        // $string_json = str_replace("place" , 'ส่งรูปภาพ' ,$string_json);
-        // $string_json = str_replace("time" , $filename ,$string_json);
-        // $string_json = str_replace("date" , $filename ,$string_json);
-
-        // $messages = [ json_decode($string_json, true) ];
-
-        $messages = [
-            [
-                'type' => 'image',
-                'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
-                'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/storage/uploads/ocr/'.$filename, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
-                // 'originalContentUrl' => 'https://bangban-bangsai.viicheck.com/img/พื้นหลัง/'.$image, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพที่ต้องการส่ง
-                // 'previewImageUrl' => 'https://bangban-bangsai.viicheck.com/img/พื้นหลัง/'.$image, // เปลี่ยน URL นี้ให้เป็น URL ของรูปภาพตัวอย่างก่อนการแสดง
-            ]
-        ];
 
         $body = [
             "replyToken" => $event["replyToken"],
