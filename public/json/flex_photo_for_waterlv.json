@@ -1,6 +1,6 @@
 {
     "type": "flex",
-    "altText": "ตัวอย่าง",
+    "altText": "waterlevel",
     "contents":{
         "type": "bubble",
         "size": "giga",
@@ -210,6 +210,25 @@
               "position": "absolute",
               "offsetStart": "75%",
               "offsetTop": "66%"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "action": {
+                    "type": "postback",
+                    "label": "Deer",
+                    "data": "hello"
+                  }
+                }
+              ],
+              "offsetTop": "2.3%",
+              "offsetEnd": "3%",
+              "position": "absolute",
+              "width": "130px",
+              "height": "35px"
             }
           ],
           "position": "relative",
