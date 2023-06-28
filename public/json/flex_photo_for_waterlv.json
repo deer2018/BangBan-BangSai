@@ -21,7 +21,7 @@
               "contents": [
                 {
                   "type": "image",
-                  "url": "URL_IMAGE_FROMLINE",
+                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
                   "aspectMode": "cover",
                   "size": "full"
                 }
@@ -158,7 +158,7 @@
                   ],
                   "position": "absolute",
                   "width": "15%",
-                  "offsetTop": "27.5%",
+                  "offsetTop": "28.5%",
                   "offsetStart": "20.5%",
                   "alignItems": "center",
                   "justifyContent": "center"
@@ -188,7 +188,7 @@
                   ],
                   "position": "absolute",
                   "width": "15%",
-                  "offsetTop": "27.5%",
+                  "offsetTop": "28.5%",
                   "offsetStart": "52.5%",
                   "alignItems": "center",
                   "justifyContent": "center"
@@ -218,7 +218,7 @@
                   ],
                   "position": "absolute",
                   "width": "15%",
-                  "offsetTop": "27.5%",
+                  "offsetTop": "28.5%",
                   "offsetStart": "85%",
                   "alignItems": "center",
                   "justifyContent": "center"
