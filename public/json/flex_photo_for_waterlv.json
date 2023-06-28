@@ -170,14 +170,14 @@
                 {
                   "type": "text",
                   "text": "ปีวิกฤต",
-                  "wrap": true,
                   "size": "14px",
                   "weight": "bold"
                 }
               ],
               "position": "absolute",
-              "offsetStart": "15%",
-              "offsetTop": "66%"
+              "offsetStart": "14%",
+              "offsetTop": "66%",
+              "justifyContent": "center"
             },
             {
               "type": "box",
@@ -186,14 +186,14 @@
                 {
                   "type": "text",
                   "text": "ปีก่อนหน้า",
-                  "wrap": true,
                   "size": "14px",
                   "weight": "bold"
                 }
               ],
               "position": "absolute",
-              "offsetStart": "44%",
-              "offsetTop": "66%"
+              "offsetStart": "42%",
+              "offsetTop": "66%",
+              "justifyContent": "center"
             },
             {
               "type": "box",
@@ -202,14 +202,14 @@
                 {
                   "type": "text",
                   "text": "ปีปัจจุบัน",
-                  "wrap": true,
                   "size": "14px",
                   "weight": "bold"
                 }
               ],
               "position": "absolute",
-              "offsetStart": "75%",
-              "offsetTop": "66%"
+              "offsetStart": "72.5%",
+              "offsetTop": "66%",
+              "justifyContent": "center"
             },
             {
               "type": "box",
