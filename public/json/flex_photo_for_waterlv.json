@@ -160,8 +160,7 @@
                   "width": "15%",
                   "offsetTop": "28.5%",
                   "offsetStart": "20.5%",
-                  "alignItems": "center",
-                  "justifyContent": "center"
+                  "alignItems": "center"
                 },
                 {
                   "type": "box",
@@ -190,8 +189,7 @@
                   "width": "15%",
                   "offsetTop": "28.5%",
                   "offsetStart": "52.5%",
-                  "alignItems": "center",
-                  "justifyContent": "center"
+                  "alignItems": "center"
                 },
                 {
                   "type": "box",
@@ -220,8 +218,7 @@
                   "width": "15%",
                   "offsetTop": "28.5%",
                   "offsetStart": "85%",
-                  "alignItems": "center",
-                  "justifyContent": "center"
+                  "alignItems": "center"
                 }
               ],
               "position": "absolute",

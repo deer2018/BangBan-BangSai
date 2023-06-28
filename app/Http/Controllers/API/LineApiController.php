@@ -162,17 +162,17 @@ class LineApiController extends Controller
         $string_json = str_replace("ปีก่อนหน้า" , '2565' ,$string_json);
         $string_json = str_replace("ปีปัจจุบัน" , '2566 (ปีปัจจุบัน)' ,$string_json);
 
-        $string_json = str_replace("y3w" , '12' ,$string_json);
-        $string_json = str_replace("y3t" , '12' ,$string_json);
-        $string_json = str_replace("y3pw" , '12' ,$string_json);
+        $string_json = str_replace("y3w" , '12.25' ,$string_json);
+        $string_json = str_replace("y3t" , '12.25' ,$string_json);
+        $string_json = str_replace("y3pw" , '12.25' ,$string_json);
 
-        $string_json = str_replace("y2w" , '12' ,$string_json);
-        $string_json = str_replace("y2t" , '12' ,$string_json);
-        $string_json = str_replace("y2pw" , '12' ,$string_json);
+        $string_json = str_replace("y2w" , '12.25' ,$string_json);
+        $string_json = str_replace("y2t" , '12.25' ,$string_json);
+        $string_json = str_replace("y2pw" , '12.25' ,$string_json);
 
-        $string_json = str_replace("y1w" , '12' ,$string_json);
-        $string_json = str_replace("y1t" , '12' ,$string_json);
-        $string_json = str_replace("y1pw" , '12' ,$string_json);
+        $string_json = str_replace("y1w" , '12.25' ,$string_json);
+        $string_json = str_replace("y1t" , '12.25' ,$string_json);
+        $string_json = str_replace("y1pw" , '12.25' ,$string_json);
 
         $messages = [ json_decode($string_json, true) ];
 
