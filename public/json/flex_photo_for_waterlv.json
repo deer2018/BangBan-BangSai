@@ -10,10 +10,10 @@
           "contents": [
             {
               "type": "image",
-              "url": "https://i.ibb.co/fp3KC9k/Flex-levelwater-bg.png",
-              "size": "full",
-              "aspectRatio": "600:600",
-              "aspectMode": "cover"
+              "url": "https://i.ibb.co/nCDTL8W/Flex-levelwater-bg.png",
+              "aspectRatio": "1:1",
+              "aspectMode": "cover",
+              "size": "100%"
             },
             {
               "type": "box",
@@ -22,19 +22,15 @@
                 {
                   "type": "image",
                   "url": "URL_IMAGE_FROMLINE",
-                  "size": "full",
-                  "aspectRatio": "350:240",
-                  "aspectMode": "cover"
+                  "aspectMode": "cover",
+                  "size": "full"
                 }
               ],
-              "offsetTop": "13%",
-              "offsetStart": "5%",
               "position": "absolute",
-              "width": "350px",
-              "height": "240px",
-              "paddingAll": "0px",
-              "borderWidth": "light",
-              "borderColor": "#000000"
+              "width": "90%",
+              "offsetStart": "5%",
+              "offsetTop": "13%",
+              "height": "80%"
             },
             {
               "type": "box",
@@ -43,8 +39,34 @@
                 {
                   "type": "image",
                   "url": "https://i.ibb.co/txX8ytZ/detail-waterlevel.png",
+                  "aspectMode": "cover",
                   "size": "full",
-                  "aspectRatio": "355:289"
+                  "aspectRatio": "577:289"
+                }
+              ],
+              "position": "absolute",
+              "width": "90%",
+              "offsetStart": "5%",
+              "offsetTop": "51%",
+              "height": "80%"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "day month : time น."
+                    }
+                  ],
+                  "position": "absolute",
+                  "width": "100%",
+                  "alignItems": "center",
+                  "offsetTop": "2%"
                 },
                 {
                   "type": "box",
@@ -52,26 +74,87 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "y3w1",
-                      "size": "13px",
-                      "weight": "bold"
+                      "text": "สถานที่ :  ตำบล อำเภอ จังหวัด"
+                    }
+                  ],
+                  "position": "absolute",
+                  "width": "100%",
+                  "alignItems": "center",
+                  "offsetTop": "9%"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "ปีวิกฤต"
+                    }
+                  ],
+                  "position": "absolute",
+                  "width": "29%",
+                  "alignItems": "center",
+                  "offsetTop": "18.8%",
+                  "offsetStart": "3%"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "ปีก่อนหน้า"
+                    }
+                  ],
+                  "position": "absolute",
+                  "width": "29%",
+                  "alignItems": "center",
+                  "offsetTop": "18.8%",
+                  "offsetStart": "36%"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "ปีปัจจุบัน"
+                    }
+                  ],
+                  "position": "absolute",
+                  "width": "29%",
+                  "alignItems": "center",
+                  "offsetTop": "18.8%",
+                  "offsetStart": "68%"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "y3w",
+                      "weight": "bold",
+                      "size": "13px"
                     },
                     {
                       "type": "text",
                       "text": "y3t",
-                      "size": "13px",
-                      "weight": "bold"
+                      "weight": "bold",
+                      "size": "13px"
                     },
                     {
                       "type": "text",
-                      "text": "y3w2",
-                      "size": "13px",
-                      "weight": "bold"
+                      "text": "y3pw",
+                      "weight": "bold",
+                      "size": "13px"
                     }
                   ],
                   "position": "absolute",
-                  "offsetStart": "22%",
-                  "offsetTop": "49.5%"
+                  "width": "15%",
+                  "offsetTop": "27.2%",
+                  "offsetStart": "20.5%",
+                  "alignItems": "center"
                 },
                 {
                   "type": "box",
@@ -79,26 +162,28 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "y2w1",
-                      "size": "13px",
-                      "weight": "bold"
+                      "text": "y2w",
+                      "weight": "bold",
+                      "size": "13px"
                     },
                     {
                       "type": "text",
                       "text": "y2t",
-                      "size": "13px",
-                      "weight": "bold"
+                      "weight": "bold",
+                      "size": "13px"
                     },
                     {
                       "type": "text",
-                      "text": "y2w2",
-                      "size": "13px",
-                      "weight": "bold"
+                      "text": "y2pw",
+                      "weight": "bold",
+                      "size": "13px"
                     }
                   ],
                   "position": "absolute",
-                  "offsetStart": "55%",
-                  "offsetTop": "49.5%"
+                  "width": "15%",
+                  "offsetTop": "27.2%",
+                  "offsetStart": "52.5%",
+                  "alignItems": "center"
                 },
                 {
                   "type": "box",
@@ -106,132 +191,37 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "y1w1",
-                      "size": "13px",
-                      "weight": "bold"
+                      "text": "y3w",
+                      "weight": "bold",
+                      "size": "13px"
                     },
                     {
                       "type": "text",
-                      "text": "y1t",
-                      "size": "13px",
-                      "weight": "bold"
+                      "text": "y3t",
+                      "weight": "bold",
+                      "size": "13px"
                     },
                     {
                       "type": "text",
-                      "text": "y1w2",
-                      "size": "13px",
-                      "weight": "bold"
+                      "text": "y3pw",
+                      "weight": "bold",
+                      "size": "13px"
                     }
                   ],
                   "position": "absolute",
-                  "offsetStart": "87%",
-                  "offsetTop": "49.5%"
+                  "width": "15%",
+                  "offsetTop": "27.2%",
+                  "offsetStart": "85%",
+                  "alignItems": "center"
                 }
               ],
               "position": "absolute",
-              "width": "355px",
-              "height": "289px",
-              "paddingAll": "0px",
-              "offsetStart": "4%",
-              "offsetTop": "36%"
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "day month : time น.",
-                  "wrap": true
-                }
-              ],
-              "position": "absolute",
-              "offsetStart": "32%",
-              "offsetTop": "51%"
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "สถานที่ :  ตำบล อำเภอ จังหวัด",
-                  "wrap": true
-                }
-              ],
-              "position": "absolute",
-              "offsetStart": "15%",
-              "offsetTop": "58%"
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "ปีวิกฤต",
-                  "size": "14px",
-                  "weight": "bold"
-                }
-              ],
-              "position": "absolute",
-              "offsetStart": "14%",
-              "offsetTop": "66%",
-              "justifyContent": "center"
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "ปีก่อนหน้า",
-                  "size": "14px",
-                  "weight": "bold"
-                }
-              ],
-              "position": "absolute",
-              "offsetStart": "42%",
-              "offsetTop": "66%",
-              "justifyContent": "center"
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "ปีปัจจุบัน",
-                  "size": "14px",
-                  "weight": "bold"
-                }
-              ],
-              "position": "absolute",
-              "offsetStart": "72.5%",
-              "offsetTop": "66%",
-              "justifyContent": "center"
-            },
-            {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "button",
-                  "action": {
-                    "type": "postback",
-                    "label": "Deer",
-                    "data": "hello"
-                  }
-                }
-              ],
-              "offsetTop": "2.3%",
-              "offsetEnd": "3%",
-              "position": "absolute",
-              "width": "130px",
-              "height": "35px"
+              "width": "90%",
+              "offsetStart": "5%",
+              "offsetTop": "51%",
+              "height": "80%"
             }
           ],
-          "position": "relative",
           "paddingAll": "0px"
         }
       }
