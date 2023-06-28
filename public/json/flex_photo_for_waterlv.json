@@ -88,7 +88,9 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "ปีวิกฤต"
+                      "text": "ปีวิกฤต",
+                      "weight": "bold",
+                      "size": "sm"
                     }
                   ],
                   "position": "absolute",
@@ -103,7 +105,9 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "ปีก่อนหน้า"
+                      "text": "ปีก่อนหน้า",
+                      "weight": "bold",
+                      "size": "sm"
                     }
                   ],
                   "position": "absolute",
@@ -118,7 +122,9 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "ปีปัจจุบัน"
+                      "text": "ปีปัจจุบัน",
+                      "weight": "bold",
+                      "size": "sm"
                     }
                   ],
                   "position": "absolute",
@@ -152,9 +158,10 @@
                   ],
                   "position": "absolute",
                   "width": "15%",
-                  "offsetTop": "27.2%",
+                  "offsetTop": "27.5%",
                   "offsetStart": "20.5%",
-                  "alignItems": "center"
+                  "alignItems": "center",
+                  "justifyContent": "center"
                 },
                 {
                   "type": "box",
@@ -181,9 +188,10 @@
                   ],
                   "position": "absolute",
                   "width": "15%",
-                  "offsetTop": "27.2%",
+                  "offsetTop": "27.5%",
                   "offsetStart": "52.5%",
-                  "alignItems": "center"
+                  "alignItems": "center",
+                  "justifyContent": "center"
                 },
                 {
                   "type": "box",
@@ -210,9 +218,10 @@
                   ],
                   "position": "absolute",
                   "width": "15%",
-                  "offsetTop": "27.2%",
+                  "offsetTop": "27.5%",
                   "offsetStart": "85%",
-                  "alignItems": "center"
+                  "alignItems": "center",
+                  "justifyContent": "center"
                 }
               ],
               "position": "absolute",
