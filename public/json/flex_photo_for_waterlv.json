@@ -226,6 +226,26 @@
               "offsetStart": "5%",
               "offsetTop": "51%",
               "height": "80%"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "button",
+                  "action": {
+                    "type": "uri",
+                    "label": "บันทึกภาพ",
+                    "uri": "line://nv/cameraRoll/singleImage/"
+                  },
+                  "height": "sm"
+                }
+              ],
+              "position": "absolute",
+              "offsetEnd": "3%",
+              "offsetTop": "2.2%",
+              "width": "33.5%",
+              "height": "9%"
             }
           ],
           "paddingAll": "0px"
