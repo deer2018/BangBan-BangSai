@@ -6,6 +6,8 @@
 
         <title>บางบาล-บางไทร</title>
 
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -31,6 +33,84 @@
     <body style="background-color: rgb(207, 207, 207)">
         <div class="centerPage">
             <h1 class="text-success">ยินดีต้อนรับสู่ แพลทฟอร์มบางบาล - บางไทร </h1>
+            <button type="button" class="btn btn-dark" onclick="GetWaterLevel();">Water1</button>
+            <button type="button" class="btn btn-dark" onclick="GetWaterLevel2();">Water2</button>
         </div>
     </body>
+
+     <!-- Option 1: Bootstrap Bundle with Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!--เรียกใช้ axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        function GetWaterLevel(){
+            let url = 'https://api-v3.thaiwater.net/api/v1/thaiwater30/public/thailand';
+            axios.get(url).then((response) => {
+                let WaterLevel = response['data']['waterlevel']['data']['data'];
+                console.log("WaterLevel");
+                console.log(WaterLevel);
+
+                for(let item of WaterLevel){
+
+                    let diff_wl_bank_text = item.diff_wl_bank_text;
+                    let province_name = item.geocode.province_name.th;
+                    let amphoe_name = item.geocode.amphoe_name.th;
+                    let tumbon_name = item.geocode.tumbon_name.th;
+                    let waterlevel_msl = item.waterlevel_msl;
+                    let storage_percent = item.storage_percent;
+
+                    if(province_name == "พระนครศรีอยุธยา" && amphoe_name == "พระนครศรีอยุธยา"){
+
+                        console.log("amphoe_name : " + amphoe_name);
+                        console.log("tumbon_name : " + tumbon_name);
+                        console.log("diff_wl_bank_text : " + diff_wl_bank_text);
+                        console.log("waterlevel_msl : " + waterlevel_msl);
+                        console.log("storage_percent : " + storage_percent);
+                        console.log("==========================================");
+                    }
+
+
+
+                }
+            })
+            .catch((error) => {
+                console.log("ERROR HERE");
+                console.log(error);
+            });
+        }
+
+
+        function GetWaterLevel2(){
+            let url2 = 'https://thungsongflood.org/api/now/wl';
+            axios.get(url2).then((response) => {
+                let WaterLevel = response['data'];
+                console.log("WaterLevel");
+                console.log(WaterLevel);
+
+                // for(let item of WaterLevel){
+
+                //     let diff_wl_bank_text = item.diff_wl_bank_text;
+                //     let province_name = item.geocode.province_name.th;
+                //     let amphoe_name = item.geocode.amphoe_name.th;
+                //     let tumbon_name = item.geocode.tumbon_name.th;
+
+                //     if(province_name == "พระนครศรีอยุธยา" && amphoe_name == "พระนครศรีอยุธยา"){
+
+                //         console.log("amphoe_name : " + amphoe_name);
+                //         console.log("tumbon_name : " + tumbon_name);
+                //         console.log("diff_wl_bank_text : " + diff_wl_bank_text);
+                //         console.log("==========================================");
+                //     }
+
+                // }
+
+            })
+            .catch((error) => {
+                console.log("ERROR HERE");
+                console.log(error);
+            });
+        }
+    </script>
 </html>

@@ -21,7 +21,7 @@
               "contents": [
                 {
                   "type": "image",
-                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                  "url": "URL_IMAGE_FROMLINE",
                   "aspectMode": "cover",
                   "size": "full"
                 }
