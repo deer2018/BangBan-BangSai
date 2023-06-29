@@ -236,7 +236,7 @@
                   "action": {
                     "type": "uri",
                     "label": "บันทึกภาพ",
-                    "uri": "line://nv/cameraRoll/singleImage/"
+                    "uri": "line://app/Ua561f9244840375d1d97d7550d22fb68"
                   },
                   "height": "sm"
                 }
