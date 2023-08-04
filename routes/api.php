@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\API\LineApiController;
+use App\Http\Controllers\API\LineWebhookController;
+
 // use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Line API
 Route::post('/lineapi', [LineApiController::class, 'store']);
+Route::post('/line/webhook', [LineWebhookController::class, 'store']);

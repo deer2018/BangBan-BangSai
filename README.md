@@ -1,3 +1,20 @@
+# water level bangban bangsai
+
+## Line Developer Console
+- Config Page
+https://developers.line.biz/console/channel/1661361971/messaging-api
+
+- Webhook production
+
+https://bangban-bangsai.viicheck.com/api/lineapi
+https://ckartisan.com/api/mywongnai/webhook
+
+
+- Webhook development
+https://e3e8-1-47-206-133.ngrok-free.app/api/line/webhook
+
+## Laravel
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
